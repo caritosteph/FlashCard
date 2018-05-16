@@ -4,15 +4,19 @@ const initialState = {
   decks: []
 }
 
-function decks(state = initialState, actions) {
-  /*switch (actions.type) {
+function decks(state = initialState, action) {
+  const { decks } = action
+
+  switch (action.type) {
     case ALL_DECKS:
-      return null
+      return {
+        ...state,
+        decks: Object.keys(decks).map(item => decks[item])
+      }
       break
     default:
-      return null
-  }*/
-  return state
+        return state;
+  }
 }
 
 export default decks

@@ -3,7 +3,7 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import { Provider } from 'react-redux'
 import { purple } from './utils/color'
 import { Constants } from 'expo'
-import MainNavigation from './components/Tabs'
+import MainNavigation from './config/routes'
 import store from './config/store'
 
 const FlashCardStatusBar = ({ backgroundColor, ...props}) => (

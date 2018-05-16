@@ -10,6 +10,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 10,
     height: 60
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    paddingBottom: 5
   }
 })
 

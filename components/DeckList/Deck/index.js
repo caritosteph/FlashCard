@@ -3,13 +3,15 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './deck.styles'
 
 const Deck = ({ deckInfo, navigateDeckItem }) => (
-  <TouchableOpacity
-    onPress={()=> navigateDeckItem()}>
-    <View style={styles.deckBox}>
-      <Text>React</Text>
-      <Text>3 cards</Text>
-    </View>
-  </TouchableOpacity>
+  <View key={deckInfo.title}>
+    <TouchableOpacity
+      onPress={()=> navigateDeckItem()}>
+      <View style={styles.deckBox}>
+        <Text style={styles.title}>{deckInfo.title}</Text>
+        <Text>{deckInfo.questions.length} {deckInfo.questions.length == 1 ? 'card' : 'cards'}</Text>
+      </View>
+    </TouchableOpacity>
+  </View>
 )
 
 export default Deck;
