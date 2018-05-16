@@ -30,25 +30,23 @@ const Tabs = createBottomTabNavigator({
     header: null
   },
   tabBarOptions: {
-    activeTintColor: Platform.OS === 'ios' ? purple : white,
+    activeTintColor: white,
     style: {
-      height: 56,
-      backgroundColor: Platform.OS === 'ios' ? white : purple,
-      shadowColor: 'rgba(0, 0, 0, 0.24)',
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
-      shadowRadius: 5,
-      shadowOpacity: 1,
+      paddingBottom: 5,
+      paddingTop: 5,
+      backgroundColor: purple,
     },
-  }
+  },
 })
 
 const MainNavigation = createStackNavigator({
   Home: {
     screen: Tabs
-  }
+  },
+}, {
+  navigationOptions: {
+    title: 'FlashCards'
+  },
 })
 
 export default MainNavigation
