@@ -3,6 +3,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import { Platform } from 'react-native'
 import AddDecks from '../components/AddDecks'
 import DeckList from '../components/DeckList'
+import DeckDetail from '../components/DeckList'
 import { Ionicons } from '@expo/vector-icons'
 import { white, purple, red } from '../utils/color'
 
@@ -41,11 +42,26 @@ const Tabs = createBottomTabNavigator({
 
 const MainNavigation = createStackNavigator({
   Home: {
-    screen: Tabs
+    screen: Tabs,
+    navigationOptions: {
+     headerTintColor: white,
+     headerStyle: {
+       backgroundColor: purple,
+     },
+   },
   },
+  DeckDetail: {
+    screen: DeckDetail,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+      },
+    },
+  }
 }, {
   navigationOptions: {
-    title: 'FlashCards'
+    //title: 'FlashCards'
   },
 })
 

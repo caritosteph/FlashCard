@@ -4,6 +4,7 @@ import { Text, View, FlatList } from 'react-native'
 import Deck from './Deck'
 import { fetchDeckList } from '../../utils/api'
 import { fetchDecks } from '../../actions/decks'
+import { DeckDetail } from '../DeckDetail'
 import styles from './deckList.styles'
 
 class DeckList extends Component {
@@ -14,8 +15,13 @@ class DeckList extends Component {
   }
 
   renderDecks = ({ item }) => (
-    <Deck deckInfo={item} />
+    <Deck deckInfo={item} navigateDeckItem={this.navigateDeckItem} />
   )
+
+  navigateDeckItem = (item) => {
+    const  { navigate } = this.props.navigation
+    return navigate('DeckDetail', { item })
+  }
 
   render(){
     const { decks } = this.props
