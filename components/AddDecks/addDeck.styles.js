@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { darkGreen, skyBlue, white, gray, red } from '../../utils/color'
+import { green, skyBlue, white, gray, red } from '../../utils/color'
+import { Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   content: {
@@ -15,16 +16,15 @@ const styles = StyleSheet.create({
     marginRight: 20,
     textAlign: 'center',
   },
-  cards: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginBottom: 20,
-    color: gray,
-  },
-  actions: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    paddingBottom: 20,
+  textInput: {
+    height: 40,
+    backgroundColor: Platform.OS === 'ios' ? white : 'transparent',
+    borderColor: Platform.OS === 'ios' ? gray : white,
+    borderRadius: Platform.OS === 'ios' ? 3 : 0,
+    borderWidth: Platform.OS === 'ios' ? 1 : 0,
+    paddingLeft: 8,
+    paddingRight: 8,
+    margin: 40,
   },
   btn: {
     borderRadius: 3,
@@ -37,13 +37,8 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 12,
   },
-  btnAdd: {
-    backgroundColor: darkGreen,
-    marginLeft: 40,
-    marginRight: 40,
-  },
-  btnQuiz: {
-    backgroundColor: skyBlue,
+  btnSubmit: {
+    backgroundColor: green,
     marginLeft: 40,
     marginRight: 40,
   },
@@ -52,11 +47,6 @@ const styles = StyleSheet.create({
     color: white,
     fontWeight: 'bold',
   },
-  emptyQuiz: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: red
-  }
 })
 
 export default styles
