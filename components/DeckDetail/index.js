@@ -31,10 +31,16 @@ class DeckDetail extends Component {
                 style={[styles.btn, styles.btnAdd]}>
                 <Text style={styles.btnText}>Add Card</Text>
               </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.btn, styles.btnQuiz]}>
-                <Text style={styles.btnText}>Start Quiz</Text>
-              </TouchableOpacity>
+              { deck.questions.length ?
+                <TouchableOpacity
+                  style={[styles.btn, styles.btnQuiz]}>
+                  <Text style={styles.btnText}>Start Quiz</Text>
+                </TouchableOpacity> :
+                <Text style={styles.emptyQuiz}>
+                  Empty deck.
+                  Please add one or more cards to start a quiz.
+                </Text>
+              }
             </View>
           </View>
         }

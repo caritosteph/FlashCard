@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { darkGreen, skyBlue, white, gray } from '../../utils/color'
+import { darkGreen, skyBlue, white, gray, red } from '../../utils/color'
 
 const styles = StyleSheet.create({
   content: {
@@ -52,6 +52,11 @@ const styles = StyleSheet.create({
     color: white,
     fontWeight: 'bold',
   },
+  emptyQuiz: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: red
+  }
 })
 
 export default styles
