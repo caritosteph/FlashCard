@@ -14,4 +14,4 @@ const Deck = ({ deckInfo, navigateDeckItem }) => (
   </View>
 )
 
-export default Deck;
+export default Deck

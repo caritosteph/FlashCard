@@ -34,7 +34,11 @@ function setInitialData() {
 }
 
 export function fetchDeckList() {
-  return AsyncStorage.getItem('FLASHCARDS_STORAGE_KEY').then(
-    result => result === null ? setInitialData() : JSON.parse(result)
-  )
+  return AsyncStorage.getItem('FLASHCARDS_STORAGE_KEY')
+   .then(results => results === null ? setInitialData() : JSON.parse(results))
+}
+
+export function getDeckDetail(deck) {
+  return AsyncStorage.getItem('FLASHCARDS_STORAGE_KEY')
+  .then(results => JSON.parse(results)[deck])
 }

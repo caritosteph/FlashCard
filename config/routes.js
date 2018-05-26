@@ -3,7 +3,8 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import { Platform } from 'react-native'
 import AddDecks from '../components/AddDecks'
 import DeckList from '../components/DeckList'
-import DeckDetail from '../components/DeckList'
+import DeckDetail from '../components/DeckDetail'
+import Quiz from '../components/Quiz'
 import { Ionicons } from '@expo/vector-icons'
 import { white, purple, red } from '../utils/color'
 
@@ -61,7 +62,8 @@ const MainNavigation = createStackNavigator({
   }
 }, {
   navigationOptions: {
-    //title: 'FlashCards'
+    title: 'FlashCards',
+    headerBackTitle: null
   },
 })
 

@@ -30,7 +30,8 @@ class DeckList extends Component {
       <View  styles={styles.container}>
           <FlatList
             data={decks}
-            renderItem={this.renderDecks} />
+            renderItem={this.renderDecks}
+            keyExtractor={(item, index) => index.toString()} />
       </View>
     )
   }
