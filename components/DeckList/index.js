@@ -20,6 +20,7 @@ class DeckList extends Component {
 
   navigateDeckItem = (item) => {
     const  { navigate } = this.props.navigation
+    console.warn("asdsd: ", navigate);
     return navigate('DeckDetail', { item })
   }
 

@@ -7,8 +7,9 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native'
-import styles from './addDeck.styles'
 import { addDeck } from '../../actions/decks'
+import { StackActions, NavigationActions } from 'react-navigation'
+import styles from './addDeck.styles'
 
 class AddDecks extends Component {
 
@@ -21,7 +22,19 @@ class AddDecks extends Component {
     const { title } = this.state
 
     addDeck(title)
+    this.navigateDeckDetail(title)
   }
+
+  navigateDeckDetail = item => {
+  const { navigate, dispatch } = this.props.navigation;
+  const resetAction = StackActions.reset({
+    index: 0,
+    actions: [NavigationActions.navigate({ routeName: 'Home' })],
+  });
+
+  dispatch(resetAction);
+  navigate('DeckDetail', { item });
+};
 
   render(){
 
