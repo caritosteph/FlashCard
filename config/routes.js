@@ -34,8 +34,6 @@ const Tabs = createBottomTabNavigator({
   tabBarOptions: {
     activeTintColor: white,
     style: {
-      paddingBottom: 5,
-      paddingTop: 5,
       backgroundColor: purple,
     },
   },

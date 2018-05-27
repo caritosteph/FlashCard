@@ -5,7 +5,7 @@ import { Platform } from 'react-native';
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    marginTop: 40,
+  //  marginTop: 40,
   },
   title: {
     fontSize: 34,

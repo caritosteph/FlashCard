@@ -1,35 +1,62 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
+  KeyboardAvoidingView,
   View,
   Text,
-  KeyboardAvoidingView,
   TextInput,
   TouchableOpacity
 } from 'react-native'
 import styles from './addDeck.styles'
+import { addDeck } from '../../actions/decks'
 
 class AddDecks extends Component {
+
+  state =  {
+    title: ""
+  }
+
+  addNewDeck = () => {
+    const { addDeck } = this.props
+    const { title } = this.state
+
+    addDeck(title)
+  }
+
   render(){
+
+    const { title } = this.state
+
     return (
-      <KeyboardAvoidingView
-        behavior="padding"
-        style={styles.content}>
-        <Text style={styles.title}>
-          What is the title of your new deck?
-        </Text>
-        <View style={{ flex: 1 }}>
-          <TextInput
-            style={styles.textInput}
-            placeholder={'Deck title'}
-          />
-          <TouchableOpacity
-            style={[styles.btn, styles.btnSubmit]}>
-            <Text style={styles.btnText}>Submit</Text>
-          </TouchableOpacity>
-        </View>
-      </KeyboardAvoidingView>
+      <View style={{ flex: 1 }}>
+        <KeyboardAvoidingView
+          enabled
+          style={styles.content}
+          behavior="padding">
+          <Text style={styles.title}>
+            What is the title of your new deck?
+          </Text>
+          <View style={{ flex: 1 }}>
+            <TextInput
+              style={styles.textInput}
+              onChangeText={(title) => this.setState({ title })}
+              value={title}
+              placeholder={'Deck title'}
+            />
+            <TouchableOpacity
+              style={[styles.btn, styles.btnSubmit]}
+              onPress= {this.addNewDeck}>
+              <Text style={styles.btnText}>Submit</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </View>
     );
   }
 }
 
-export default AddDecks
+const mapDispatchToProps = ({
+  addDeck
+})
+
+export default connect(null, mapDispatchToProps)(AddDecks)

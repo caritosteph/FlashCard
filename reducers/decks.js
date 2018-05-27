@@ -1,11 +1,11 @@
-import { ALL_DECKS } from '../actions/constantTypes'
+import { ALL_DECKS, ADD_DECK } from '../actions/constantTypes'
 
 const initialState = {
   decks: []
 }
 
 function decks(state = initialState, action) {
-  const { decks } = action
+  const { decks, deck } = action
 
   switch (action.type) {
     case ALL_DECKS:
@@ -13,7 +13,14 @@ function decks(state = initialState, action) {
         ...state,
         decks: Object.keys(decks).map(item => decks[item])
       }
-      break
+    case ADD_DECK:
+      return {
+        ...state,
+        decks: [
+          ...state.decks,
+          deck
+        ]
+      }
     default:
         return state;
   }
