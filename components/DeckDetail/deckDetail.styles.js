@@ -52,6 +52,9 @@ const styles = StyleSheet.create({
     color: white,
     fontWeight: 'bold',
   },
+  empty: {
+    padding: 30,
+  },
   emptyQuiz: {
     fontSize: 14,
     textAlign: 'center',

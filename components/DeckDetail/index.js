@@ -13,8 +13,19 @@ class DeckDetail extends Component {
 
   componentDidMount() {
     const { navigation, deckDetail } = this.props
+
     getDeckDetail(navigation.state.params.item)
       .then(result => deckDetail(result))
+  }
+
+  addCardToDeck = item => {
+    const { navigate } = this.props.navigation
+
+    navigate('Cards', { item })
+  }
+
+  saveNewCard = () => {
+    console.warn("Saving new card");
   }
 
   render() {
@@ -28,7 +39,8 @@ class DeckDetail extends Component {
             <Text style={styles.cards}>{deck.questions.length} {deck.questions.length == 1 ? 'card' : 'cards'}</Text>
             <View style={styles.actions}>
               <TouchableOpacity
-                style={[styles.btn, styles.btnAdd]}>
+                style={[styles.btn, styles.btnAdd]}
+                onPress={() => this.addCardToDeck(deck.title)}>
                 <Text style={styles.btnText}>Add Card</Text>
               </TouchableOpacity>
               { deck.questions.length ?
@@ -36,10 +48,12 @@ class DeckDetail extends Component {
                   style={[styles.btn, styles.btnQuiz]}>
                   <Text style={styles.btnText}>Start Quiz</Text>
                 </TouchableOpacity> :
-                <Text style={styles.emptyQuiz}>
-                  Empty deck.
-                  Please add one or more cards to start a quiz.
-                </Text>
+                <View style={styles.empty}>
+                  <Text style={styles.emptyQuiz}>Empty deck.</Text>
+                  <Text style={styles.emptyQuiz}>
+                    Please add one or more cards to start a quiz.
+                  </Text>
+                </View>
               }
             </View>
           </View>
