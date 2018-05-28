@@ -4,28 +4,36 @@ import { darkGreen, skyBlue, white, gray, red } from '../../utils/color'
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'center'
+    alignItems: 'stretch'
   },
   title: {
-    fontSize: 34,
+    fontSize: 32,
     fontWeight: 'bold',
-    marginTop: 80,
-    marginBottom: 20,
-    marginLeft: 20,
-    marginRight: 20,
+    marginTop: 20,
     textAlign: 'center',
   },
-  cards: {
-    fontSize: 18,
+  counter: {
+    margin: 20,
+    fontSize: 20,
     textAlign: 'center',
-    marginBottom: 20,
-    color: gray,
+    color: darkGreen
+  },
+  card: {
+    flex: 1,
+    backgroundColor: white,
+    padding: 20,
+    height: 60,
+    justifyContent: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.24)',
+  },
+  cardText: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   actions: {
     flex: 1,
-    justifyContent: 'flex-end',
-    paddingBottom: 20,
+    marginTop: 30,
   },
   btn: {
     borderRadius: 3,
@@ -38,13 +46,13 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 12,
   },
-  btnAdd: {
-    backgroundColor: darkGreen,
+  btnSubmit: {
+    backgroundColor: green,
     marginLeft: 40,
     marginRight: 40,
   },
-  btnQuiz: {
-    backgroundColor: skyBlue,
+  btnDanger: {
+    backgroundColor: green,
     marginLeft: 40,
     marginRight: 40,
   },
@@ -53,14 +61,6 @@ const styles = StyleSheet.create({
     color: white,
     fontWeight: 'bold',
   },
-  empty: {
-    padding: 30,
-  },
-  emptyQuiz: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: red
-  }
 })
 
 export default styles

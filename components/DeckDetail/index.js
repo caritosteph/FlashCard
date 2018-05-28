@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { getDeckDetail } from '../../utils/api'
-import { deckDetail } from '../../actions/deck'
+import { fetchDeckDetail } from '../../actions/deck'
 import styles from './deckDetail.styles'
 
 class DeckDetail extends Component {
@@ -12,16 +11,21 @@ class DeckDetail extends Component {
   })
 
   componentDidMount() {
-    const { navigation, deckDetail } = this.props
+    const { navigation, fetchDeckDetail } = this.props
 
-    getDeckDetail(navigation.state.params.item)
-      .then(result => deckDetail(result))
+    fetchDeckDetail(navigation.state.params.item)
   }
 
   addCardToDeck = item => {
     const { navigate } = this.props.navigation
 
     navigate('Cards', { item })
+  }
+
+  startQuiz = item => {
+    const { navigate } = this.props.navigation
+
+    navigate('Quiz', { item })
   }
 
   render() {
@@ -32,7 +36,7 @@ class DeckDetail extends Component {
         { deck &&
           <View style={styles.content}>
             <Text style={styles.title}>{deck.title}</Text>
-            <Text style={styles.cards}>{deck.questions.length} {deck.questions.length == 1 ? 'card' : 'cards'}</Text>
+            <Text style={styles.cards}>{deck.questions.length} {deck.questions.length === 1 ? 'card' : 'cards'}</Text>
             <View style={styles.actions}>
               <TouchableOpacity
                 style={[styles.btn, styles.btnAdd]}
@@ -41,14 +45,13 @@ class DeckDetail extends Component {
               </TouchableOpacity>
               { deck.questions.length ?
                 <TouchableOpacity
-                  style={[styles.btn, styles.btnQuiz]}>
+                  style={[styles.btn, styles.btnQuiz]}
+                  onPress={() => this.startQuiz(deck)}>
                   <Text style={styles.btnText}>Start Quiz</Text>
                 </TouchableOpacity> :
                 <View style={styles.empty}>
                   <Text style={styles.emptyQuiz}>Empty deck.</Text>
-                  <Text style={styles.emptyQuiz}>
-                    Please add one or more cards to start a quiz.
-                  </Text>
+                  <Text style={styles.emptyQuiz}>Please add one or more cards to start a quiz.</Text>
                 </View>
               }
             </View>
@@ -64,7 +67,7 @@ const mapStateToProps  = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = ({
-  deckDetail
+  fetchDeckDetail
 })
 
 DeckDetail.propTypes = {
