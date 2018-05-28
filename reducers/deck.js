@@ -1,11 +1,11 @@
-import { DECK_DETAIL } from '../actions/constantTypes'
+import { DECK_DETAIL, ADD_CARD_DECK } from '../actions/constantTypes'
 
 const initialState = {
   questions: []
 }
 
 function decks(state = initialState, action) {
-  const { deck } = action
+  const { deck, card } = action
 
   switch (action.type) {
     case DECK_DETAIL:
@@ -13,7 +13,11 @@ function decks(state = initialState, action) {
         ...state,
         deck
       }
-      break
+    case ADD_CARD_DECK:
+      return {
+        ...state,
+        questions: state.questions.push(card)
+      }
     default:
         return state;
   }

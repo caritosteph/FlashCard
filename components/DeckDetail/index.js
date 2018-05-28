@@ -24,10 +24,6 @@ class DeckDetail extends Component {
     navigate('Cards', { item })
   }
 
-  saveNewCard = () => {
-    console.warn("Saving new card");
-  }
-
   render() {
     const { deck } = this.props
 
