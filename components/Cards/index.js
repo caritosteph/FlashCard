@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Text, TouchableOpacity, TextInput } from 'react-native'
-import { addCardDeck } from '../../actions/deck'
+import { fetchDecks } from '../../actions/decks'
+import { addCardDeck } from '../../actions/deck'
 import { navigateToDeckDetail } from '../../utils/navigation'
 import styles from './cards.styles'
 
@@ -18,16 +19,15 @@ class Cards extends Component {
 
   addNewCard = () => {
     const { question, answer } = this.state
-    const { addCardDeck, navigation } = this.props
+    const { addCardDeck, fetchDecks, navigation } = this.props
     const card = {
       question,
       answer
     }
     const deckTitle = navigation.state.params.item;
-    console.warn("decktitle_ ", deckTitle)
-    console.warn("card ", card)
     addCardDeck(deckTitle, card)
-    navigateToDeckDetail(deckTitle, navigation)
+    .then(()=>fetchDecks())// update the list of decks
+    navigation.navigate('DeckDetail', { item: deckTitle })
   }
 
   render() {
@@ -47,7 +47,7 @@ class Cards extends Component {
             style={styles.textInput}
             placeholder={'Add the response'}
             value={answer}
-            onChangeText={question => this.setState({ question })} />
+            onChangeText={answer => this.setState({ answer })} />
         <TouchableOpacity
           style={[styles.btn, styles.btnSubmit]}
           onPress={this.addNewCard}>
@@ -59,7 +59,8 @@ class Cards extends Component {
 }
 
 const mapDispatchToProps = ({
-  addCardDeck
+  addCardDeck,
+  fetchDecks
 })
 
 Cards.propTypes = {

@@ -5,7 +5,7 @@ const initialState = {
 }
 
 function decks(state = initialState, action) {
-  const { decks, deck } = action
+  const { decks, deck, card } = action
 
   switch (action.type) {
     case ALL_DECKS:
@@ -21,6 +21,7 @@ function decks(state = initialState, action) {
           deck
         ]
       }
+
     default:
         return state;
   }

@@ -1,5 +1,5 @@
 import { ALL_DECKS, ADD_DECK } from './constantTypes'
-import { fetchDeckList, saveNewDeck } from  '../utils/api'
+import { fetchDeckList, saveNewDeck, addCardToDeck } from  '../utils/api'
 
 const allDecks = (decks) => ({
   type: ALL_DECKS,
@@ -10,6 +10,13 @@ const newDeck = (deck) => ({
   type: ADD_DECK,
   deck
 })
+
+const addCard = (decks) => {
+  return {
+    type: ALL_DECKS,
+    decks
+  }
+}
 
 export const fetchDecks = () => dispatch => {
   return fetchDeckList()

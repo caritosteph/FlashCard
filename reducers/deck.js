@@ -1,6 +1,7 @@
 import { DECK_DETAIL, ADD_CARD_DECK } from '../actions/constantTypes'
 
-const initialState = {
+initialState = {
+  title: '',
   questions: []
 }
 
@@ -11,12 +12,15 @@ function decks(state = initialState, action) {
     case DECK_DETAIL:
       return {
         ...state,
-        deck
+        ...deck
       }
     case ADD_CARD_DECK:
       return {
         ...state,
-        questions: state.questions.push(card)
+        questions:[
+          ...state.questions,
+          card
+        ]
       }
     default:
         return state;

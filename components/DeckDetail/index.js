@@ -63,7 +63,7 @@ class DeckDetail extends Component {
 }
 
 const mapStateToProps  = (state, ownProps) => ({
-  deck: state.deck.deck,
+  deck: state.deck,
 })
 
 const mapDispatchToProps = ({
