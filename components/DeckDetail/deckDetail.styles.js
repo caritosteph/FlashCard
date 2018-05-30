@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { darkGreen, skyBlue, white, gray, red } from '../../utils/color'
+import { lightPurp, skyBlue, white, gray, red } from '../../utils/color'
 
 const styles = StyleSheet.create({
   content: {
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
   },
   btnAdd: {
-    backgroundColor: darkGreen,
+    backgroundColor: lightPurp,
     marginLeft: 40,
     marginRight: 40,
   },

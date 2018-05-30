@@ -18,13 +18,11 @@ class DeckDetail extends Component {
 
   addCardToDeck = item => {
     const { navigate } = this.props.navigation
-
     navigate('Cards', { item })
   }
 
   startQuiz = item => {
     const { navigate } = this.props.navigation
-
     navigate('Quiz', { item })
   }
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { green, skyBlue, white, gray, red } from '../../utils/color'
+import { lightPurp, skyBlue, white, gray, red } from '../../utils/color'
 import { Platform } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -19,14 +19,14 @@ const styles = StyleSheet.create({
   btn: {
     borderRadius: 3,
     overflow: 'hidden',
-    marginTop: 40,
+    marginTop: 50,
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 12,
     paddingBottom: 12,
   },
   btnSubmit: {
-    backgroundColor: green,
+    backgroundColor: lightPurp,
     marginLeft: 40,
     marginRight: 40,
   },

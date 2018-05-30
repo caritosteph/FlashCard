@@ -51,7 +51,7 @@ class Cards extends Component {
         <TouchableOpacity
           style={[styles.btn, styles.btnSubmit]}
           onPress={this.addNewCard}>
-          <Text style={styles.btnText}>Add Card</Text>
+          <Text style={styles.btnText}>Save card</Text>
         </TouchableOpacity>
       </View>
     )

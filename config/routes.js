@@ -60,14 +60,23 @@ const MainNavigation = createStackNavigator({
     },
   },
   Cards: {
-  screen: Cards,
-  navigationOptions: {
-    headerTintColor: white,
-    headerStyle: {
-      backgroundColor: purple,
+    screen: Cards,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+      },
     },
   },
-},
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+      },
+    },
+  },
 }, {
   navigationOptions: {
     title: 'FlashCards',

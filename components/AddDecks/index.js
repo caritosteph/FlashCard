@@ -48,7 +48,7 @@ class AddDecks extends Component {
             <TouchableOpacity
               style={[styles.btn, styles.btnSubmit]}
               onPress= {this.addNewDeck}>
-              <Text style={styles.btnText}>Submit</Text>
+              <Text style={styles.btnText}>Save deck</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>

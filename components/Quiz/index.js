@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './quiz.styles'
 
 class Quiz extends Component {
@@ -26,27 +26,27 @@ class Quiz extends Component {
 
     return (
       <View style={styles.content}>
-        <Text style={styles.title}>Quiz</Text>
         <Text style={styles.counter}>
-          Questions {`${currentQuestion + 1}/${deck.questions.length}`}
+          Question {`${currentQuestion + 1}/${deck && deck.questions.length}`}
         </Text>
         <View style={styles.card}>
           <Text style={styles.cardText}>
-            {deck.questions[currentQuestion].question}
+            {deck && deck.questions[currentQuestion].question}
           </Text>
         </View>
-        <TouchableOpacity>
-          <Text>Show Answer</Text>
-        </TouchableOpacity>
-
+        <View>
+          <TouchableOpacity>
+            <Text style={styles.textLink}>Show Answer</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.actions}>
           <TouchableOpacity
             style={[styles.btn, styles.btnSubmit]}>
-            <Text styles={styles.btnText}>Correct</Text>
+            <Text style={styles.btnText}>Correct</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.btn, styles.btnDanger]}>
-            <Text styles={styles.btnText}>Incorrect</Text>
+            <Text style={styles.btnText}>Incorrect</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { green, skyBlue, white, gray, red } from '../../utils/color'
+import { lightPurp, skyBlue, white, gray, red } from '../../utils/color'
 import { Platform } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
   },
   btnSubmit: {
-    backgroundColor: green,
+    backgroundColor: lightPurp,
     marginLeft: 40,
     marginRight: 40,
   },

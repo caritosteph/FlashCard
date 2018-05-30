@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { green, darkGreen, skyBlue, white, gray, red } from '../../utils/color'
+import { green, darkGreen, white, red, darkRed } from '../../utils/color'
 
 const styles = StyleSheet.create({
   content: {
@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   counter: {
-    margin: 20,
+    marginTop: 40,
+    marginBottom: 20,
     fontSize: 20,
     textAlign: 'center',
     color: darkGreen
@@ -21,10 +22,21 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     backgroundColor: white,
+    margin: 40,
     padding: 20,
     height: 60,
     justifyContent: 'center',
     shadowColor: 'rgba(0, 0, 0, 0.24)',
+    shadowOffset: {
+       width: 2,
+       height: 4,
+    },
+    shadowOpacity: 0.3,
+  },
+  textLink: {
+    textAlign: 'center',
+    color: darkRed,
+    fontSize: 16
   },
   cardText: {
     fontSize: 28,
@@ -52,7 +64,7 @@ const styles = StyleSheet.create({
     marginRight: 40,
   },
   btnDanger: {
-    backgroundColor: green,
+    backgroundColor: red,
     marginLeft: 40,
     marginRight: 40,
   },
