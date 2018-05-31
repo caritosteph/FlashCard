@@ -61,10 +61,11 @@ class Quiz extends Component {
     })
   }
 
-  gotToDecks = () => {
+  gotToDeck = () => {
     const { navigate } = this.props.navigation
+    const { deck } = this.state
 
-    navigate('Home')
+    return navigate('DeckDetail', { item: deck.title })
   }
 
   showQuizAnwser = () => {
@@ -85,7 +86,7 @@ class Quiz extends Component {
               correct={correct}
               totalQuestions ={deck.questions.length}
               retakeQuiz={this.retakeQuiz}
-              gotToDecks={this.gotToDecks} /> :
+              gotToDecks={this.gotToDeck} /> :
           <View style={styles.content}>
             <Text style={styles.counter}>
               Question {`${currentQuestion + 1}/${deck && deck.questions.length}`}

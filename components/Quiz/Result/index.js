@@ -49,7 +49,7 @@ class Result extends Component {
           <TouchableOpacity
             onPress={gotToDecks}
             style={[styles.btn, styles.btnDecks]}>
-            <Text style={styles.btnText}>Go to Decks</Text>
+            <Text style={styles.btnText}>Go to Deck</Text>
           </TouchableOpacity>
         </View>
 
