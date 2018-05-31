@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   btn: {
-    borderRadius: 3,
     overflow: 'hidden',
     marginTop: 50,
     paddingLeft: 15,
@@ -38,9 +37,6 @@ const styles = StyleSheet.create({
   textInput: {
     height: 40,
     backgroundColor: Platform.OS === 'ios' ? white : 'transparent',
-    borderColor: Platform.OS === 'ios' ? gray : white,
-    borderRadius: Platform.OS === 'ios' ? 3 : 0,
-    borderWidth: Platform.OS === 'ios' ? 1 : 0,
     paddingLeft: 8,
     paddingRight: 8,
     marginLeft: 40,

@@ -18,15 +18,11 @@ const styles = StyleSheet.create({
   textInput: {
     height: 40,
     backgroundColor: Platform.OS === 'ios' ? white : 'transparent',
-    borderColor: Platform.OS === 'ios' ? gray : white,
-    borderRadius: Platform.OS === 'ios' ? 3 : 0,
-    borderWidth: Platform.OS === 'ios' ? 1 : 0,
     paddingLeft: 8,
     paddingRight: 8,
     margin: 40,
   },
   btn: {
-    borderRadius: 3,
     borderWidth: 0,
     overflow: 'hidden',
     marginTop: 15,

@@ -1,31 +1,33 @@
 import { StyleSheet } from 'react-native'
-import { lightPurp, skyBlue, white, gray, red } from '../../utils/color'
+import { darkGray, gray, lightPurp, skyBlue, white } from '../../../utils/color'
 
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    alignItems: 'stretch',
     justifyContent: 'center'
   },
-  title: {
-    fontSize: 34,
-    fontWeight: 'bold',
-    marginTop: 80,
-    marginBottom: 20,
-    marginLeft: 20,
-    marginRight: 20,
+  score: {
     textAlign: 'center',
+    fontSize: 60,
+    fontWeight: '800',
   },
-  cards: {
-    fontSize: 18,
+  txtScore: {
     textAlign: 'center',
-    marginBottom: 20,
-    color: gray,
+    fontSize: 18,
+    marginTop: 10,
+    color: gray
+  },
+  txtMessage : {
+    textAlign: 'center',
+    fontSize: 30,
+    marginTop: 10,
+    color: darkGray,
   },
   actions: {
     flex: 1,
+    marginTop: 30,
     justifyContent: 'flex-end',
-    paddingBottom: 20,
+    marginBottom: 30,
   },
   btn: {
     borderWidth: 0,
@@ -37,12 +39,12 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 12,
   },
-  btnAdd: {
+  btnRetake: {
     backgroundColor: lightPurp,
     marginLeft: 40,
     marginRight: 40,
   },
-  btnQuiz: {
+  btnDecks: {
     backgroundColor: skyBlue,
     marginLeft: 40,
     marginRight: 40,
@@ -52,14 +54,6 @@ const styles = StyleSheet.create({
     color: white,
     fontWeight: 'bold',
   },
-  empty: {
-    padding: 30,
-  },
-  emptyQuiz: {
-    fontSize: 14,
-    textAlign: 'center',
-    color: red
-  }
 })
 
 export default styles
