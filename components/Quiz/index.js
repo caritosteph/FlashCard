@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Animated } from 'react-native'
 import Result from './Result'
 import styles from './quiz.styles'
 import { setLocalNotification, clearLocalNotification } from '../../utils/notifications'
@@ -11,19 +11,23 @@ class Quiz extends Component {
     currentQuestion: 0,
     endQuiz: false,
     correct: 0,
-    showAnswer: false
+    showAnswer: false,
+    opacity: new Animated.Value(0)
+  }
+
+  componentDidMount() {
+    const { navigation } = this.props
+    const { opacity } = this.state
+
+    this.setState({
+      deck: navigation.state.params.item
+    })
+    Animated.timing(opacity, { toValue: 1, duration: 1000 }).start()
   }
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Quiz',
   });
-
-  componentDidMount() {
-    const { navigation } = this.props
-    this.setState({
-      deck: navigation.state.params.item
-    })
-  }
 
   checkQuestion = (isCorrect) => {
     const { deck, currentQuestion } = this.state
@@ -71,10 +75,11 @@ class Quiz extends Component {
 
   render(){
 
-    const { currentQuestion, deck, endQuiz, correct, showAnswer } = this.state
+    const { currentQuestion, deck, endQuiz,
+            correct, showAnswer, opacity } = this.state
 
     return (
-        <View style={styles.content}>
+        <Animated.View style={[styles.content, {opacity}]}>
           { endQuiz ?
             <Result
               correct={correct}
@@ -112,7 +117,7 @@ class Quiz extends Component {
             </View>
           </View>
         }
-        </View>
+      </Animated.View>
     )
   }
 }

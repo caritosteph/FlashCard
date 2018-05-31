@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Animated } from 'react-native'
 import { fetchDeckDetail } from '../../actions/deck'
 import styles from './deckDetail.styles'
 
 class DeckDetail extends Component {
+
+  state = {
+    opacity: new Animated.Value(0)
+  };
 
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.item
@@ -12,8 +16,10 @@ class DeckDetail extends Component {
 
   componentDidMount() {
     const { navigation, fetchDeckDetail } = this.props
+    const { opacity } = this.state
 
     fetchDeckDetail(navigation.state.params.item)
+    Animated.timing(opacity, { toValue: 1, duration: 1000 }).start()
   }
 
   addCardToDeck = item => {
@@ -28,9 +34,10 @@ class DeckDetail extends Component {
 
   render() {
     const { deck } = this.props
+    const { opacity } = this.state
 
     return (
-      <View style={styles.content}>
+      <Animated.View style={[styles.content, { opacity }]}>
         { deck &&
           <View style={styles.content}>
             <Text style={styles.title}>{deck.title}</Text>
@@ -55,7 +62,7 @@ class DeckDetail extends Component {
             </View>
           </View>
         }
-      </View>
+      </Animated.View>
     )
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, TextInput, Animated } from 'react-native'
 import { fetchDecks } from '../../actions/decks'
 import { addCardDeck } from '../../actions/deck'
 import { navigateToDeckDetail } from '../../utils/navigation'
@@ -10,7 +10,14 @@ class Cards extends Component {
 
   state = {
     question: '',
-    answer: ''
+    answer: '',
+    opacity: new Animated.Value(0)
+  }
+
+  componentDidMount() {
+    const { opacity } = this.state
+
+    Animated.timing(opacity, { toValue: 1, duration: 1000 }).start();
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -18,7 +25,7 @@ class Cards extends Component {
   })
 
   addNewCard = () => {
-    const { question, answer } = this.state
+    const { question, answer, opacity } = this.state
     const { addCardDeck, fetchDecks, navigation } = this.props
     const card = {
       question,
@@ -32,10 +39,10 @@ class Cards extends Component {
 
   render() {
 
-    const { question, answer } = this.state
+    const { question, answer, opacity } = this.state
 
     return (
-      <View style={styles.content}>
+      <Animated.View style={[styles.content, {opacity}]}>
         <Text style={styles.headerText}>Question</Text>
         <TextInput
             style={styles.textInput}
@@ -53,7 +60,7 @@ class Cards extends Component {
           onPress={this.addNewCard}>
           <Text style={styles.btnText}>Save card</Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
     )
   }
 }
