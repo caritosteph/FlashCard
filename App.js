@@ -3,6 +3,7 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import { Provider } from 'react-redux'
 import { purple } from './utils/color'
 import { Constants } from 'expo'
+import { setLocalNotification } from './utils/notifications'
 import MainNavigation from './config/routes'
 import store from './config/store'
 
@@ -16,6 +17,11 @@ const FlashCardStatusBar = ({ backgroundColor, ...props}) => (
 )
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    setLocalNotification()
+  }
+
   render() {
     return (
       <Provider store={store}>
