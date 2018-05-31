@@ -46,8 +46,7 @@ class AddDecks extends Component {
               style={mainStyles.textInput}
               onChangeText={(title) => this.setState({ title })}
               value={title}
-              placeholder={'Deck title'}
-            />
+              placeholder={'Deck title'} />
             <TouchableOpacity
               style={[mainStyles.btn, mainStyles.btnSubmit]}
               onPress= {this.addNewDeck}>

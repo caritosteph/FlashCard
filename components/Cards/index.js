@@ -92,8 +92,4 @@ const mapDispatchToProps = ({
   fetchDecks
 })
 
-Cards.propTypes = {
-
-};
-
 export default connect(null, mapDispatchToProps)(Cards)
