@@ -9,7 +9,8 @@ class Quiz extends Component {
     deck: '',
     currentQuestion: 0,
     endQuiz: false,
-    correct: 0
+    correct: 0,
+    showAnswer: false
   }
 
   static navigationOptions = ({ navigation }) => ({
@@ -40,6 +41,9 @@ class Quiz extends Component {
         endQuiz: true
       })
     }
+    this.setState({
+      showAnswer: false
+    })
   }
 
   retakeQuiz = (item) => {
@@ -56,9 +60,15 @@ class Quiz extends Component {
     navigate('Home')
   }
 
+  showQuizAnwser = () => {
+    this.setState(state => ({
+      showAnswer: !state.showAnswer
+    }))
+  }
+
   render(){
 
-    const { currentQuestion, deck, endQuiz, correct } = this.state
+    const { currentQuestion, deck, endQuiz, correct, showAnswer } = this.state
 
     return (
         <View style={styles.content}>
@@ -74,12 +84,15 @@ class Quiz extends Component {
             </Text>
             <View style={styles.card}>
               <Text style={styles.cardText}>
-                {deck && deck.questions[currentQuestion].question}
+                {showAnswer
+                  ? deck && deck.questions[currentQuestion].answer
+                  : deck && deck.questions[currentQuestion].question}
               </Text>
             </View>
             <View>
-              <TouchableOpacity>
-                <Text style={styles.textLink}>Show Answer</Text>
+              <TouchableOpacity
+                onPress={this.showQuizAnwser}>
+                <Text style={styles.textLink}>{showAnswer ? 'Show question' : 'Show answer'}</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.actions}>
