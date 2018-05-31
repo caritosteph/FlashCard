@@ -35,15 +35,12 @@ class AddDecks extends Component {
     const { title } = this.state
 
     return (
-      <View style={{ flex: 1 }}>
         <KeyboardAvoidingView
-          enabled
           style={styles.content}
           behavior="padding">
-          <Text style={styles.title}>
-            What is the title of your new deck?
-          </Text>
-          <View style={{ flex: 1 }}>
+            <Text style={styles.title}>
+              What is the title of your new deck?
+            </Text>
             <TextInput
               style={styles.textInput}
               onChangeText={(title) => this.setState({ title })}
@@ -55,9 +52,7 @@ class AddDecks extends Component {
               onPress= {this.addNewDeck}>
               <Text style={styles.btnText}>Save deck</Text>
             </TouchableOpacity>
-          </View>
         </KeyboardAvoidingView>
-      </View>
     );
   }
 }

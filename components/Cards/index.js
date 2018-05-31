@@ -6,7 +6,9 @@ import {
   TouchableOpacity,
   TextInput,
   Animated,
-  Alert } from 'react-native'
+  Alert,
+  KeyboardAvoidingView
+} from 'react-native'
 import { fetchDecks } from '../../actions/decks'
 import { addCardDeck } from '../../actions/deck'
 import { navigateToDeckDetail } from '../../utils/navigation'
@@ -58,23 +60,27 @@ class Cards extends Component {
 
     return (
       <Animated.View style={[styles.content, {opacity}]}>
-        <Text style={styles.headerText}>Question</Text>
-        <TextInput
-            style={styles.textInput}
-            placeholder={'Add new question'}
-            value={question}
-            onChangeText={question => this.setState({ question })} />
-        <Text style={[styles.headerText, styles.marginTop]}>Answer</Text>
-        <TextInput
-            style={styles.textInput}
-            placeholder={'Add the response'}
-            value={answer}
-            onChangeText={answer => this.setState({ answer })} />
+        <KeyboardAvoidingView
+          style={styles.content}
+          behavior="padding">
+          <Text style={styles.headerText}>Question</Text>
+          <TextInput
+              style={styles.textInput}
+              placeholder={'Add new question'}
+              value={question}
+              onChangeText={question => this.setState({ question })} />
+          <Text style={[styles.headerText, styles.marginTop]}>Answer</Text>
+          <TextInput
+              style={styles.textInput}
+              placeholder={'Add the response'}
+              value={answer}
+              onChangeText={answer => this.setState({ answer })} />
         <TouchableOpacity
           style={[styles.btn, styles.btnSubmit]}
           onPress={this.addNewCard}>
           <Text style={styles.btnText}>Save card</Text>
         </TouchableOpacity>
+          </KeyboardAvoidingView>
       </Animated.View>
     )
   }

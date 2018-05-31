@@ -5,14 +5,14 @@ import { Platform } from 'react-native';
 const styles = StyleSheet.create({
   content: {
     flex: 1,
+    justifyContent: 'center'
   },
   title: {
     fontSize: 34,
     fontWeight: 'bold',
-    marginTop: 80,
-    marginBottom: 20,
     marginLeft: 20,
     marginRight: 20,
+    marginBottom: 30,
     textAlign: 'center',
   },
   textInput: {
@@ -20,13 +20,15 @@ const styles = StyleSheet.create({
     backgroundColor: Platform.OS === 'ios' ? white : 'transparent',
     paddingLeft: 8,
     paddingRight: 8,
-    margin: 40,
+    marginLeft: 40,
+    marginRight: 40,
+    marginBottom: 20
   },
   btn: {
     borderWidth: 0,
     overflow: 'hidden',
     marginTop: 15,
-    marginBottom: 0,
+    marginBottom: 30,
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 12,

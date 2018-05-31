@@ -8,21 +8,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   headerText: {
-    fontSize: 34,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 10,
     textAlign: 'center',
   },
   marginTop: {
-    marginTop: 30,
+    marginTop: 20,
   },
   btn: {
     overflow: 'hidden',
-    marginTop: 50,
+    marginTop: 15,
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 12,
     paddingBottom: 12,
+    marginBottom: 30
   },
   btnSubmit: {
     backgroundColor: lightPurp,
