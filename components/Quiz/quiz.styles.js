@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-import { green, darkGreen, white, red, darkRed } from '../../utils/color'
+import { darkPurple, white, red, darkRed } from '../../utils/color'
 
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    alignItems: 'stretch'
+    justifyContent: 'center'
   },
   title: {
     fontSize: 32,
@@ -15,9 +15,10 @@ const styles = StyleSheet.create({
   counter: {
     marginTop: 40,
     marginBottom: 20,
-    fontSize: 20,
+    fontSize: 24,
+    fontWeight: 'bold',
     textAlign: 'center',
-    color: darkGreen
+    color: darkPurple
   },
   card: {
     flex: 1,
@@ -46,31 +47,6 @@ const styles = StyleSheet.create({
   actions: {
     flex: 1,
     marginTop: 30,
-  },
-  btn: {
-    borderWidth: 0,
-    overflow: 'hidden',
-    marginTop: 15,
-    marginBottom: 0,
-    paddingLeft: 15,
-    paddingRight: 15,
-    paddingTop: 12,
-    paddingBottom: 12,
-  },
-  btnSubmit: {
-    backgroundColor: green,
-    marginLeft: 40,
-    marginRight: 40,
-  },
-  btnDanger: {
-    backgroundColor: red,
-    marginLeft: 40,
-    marginRight: 40,
-  },
-  btnText: {
-    textAlign: 'center',
-    color: white,
-    fontWeight: 'bold',
   },
 })
 

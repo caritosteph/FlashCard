@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { View, Text, TouchableOpacity, Animated } from 'react-native'
 import { fetchDeckDetail } from '../../actions/deck'
 import styles from './deckDetail.styles'
+import mainStyles from '../../assets/main.styles'
 
 class DeckDetail extends Component {
 
@@ -37,22 +38,22 @@ class DeckDetail extends Component {
     const { opacity } = this.state
 
     return (
-      <Animated.View style={[styles.content, { opacity }]}>
+      <Animated.View style={[mainStyles.content, { opacity }]}>
         { deck &&
-          <View style={styles.content}>
+          <View style={mainStyles.content}>
             <Text style={styles.title}>{deck.title}</Text>
             <Text style={styles.cards}>{deck.questions.length} {deck.questions.length === 1 ? 'card' : 'cards'}</Text>
             <View style={styles.actions}>
               <TouchableOpacity
-                style={[styles.btn, styles.btnAdd]}
+                style={[mainStyles.btn, mainStyles.btnAdd]}
                 onPress={() => this.addCardToDeck(deck.title)}>
-                <Text style={styles.btnText}>Add Card</Text>
+                <Text style={mainStyles.btnText}>Add Card</Text>
               </TouchableOpacity>
               { deck.questions.length ?
                 <TouchableOpacity
-                  style={[styles.btn, styles.btnQuiz]}
+                  style={[mainStyles.btn, mainStyles.btnQuiz]}
                   onPress={() => this.startQuiz(deck)}>
-                  <Text style={styles.btnText}>Start Quiz</Text>
+                  <Text style={mainStyles.btnText}>Start Quiz</Text>
                 </TouchableOpacity> :
                 <View style={styles.empty}>
                   <Text style={styles.emptyQuiz}>Empty deck.</Text>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, Animated } from 'react-native'
 import Result from './Result'
-import styles from './quiz.styles'
 import { setLocalNotification, clearLocalNotification } from '../../utils/notifications'
+import styles from './quiz.styles'
+import mainStyles from '../../assets/main.styles'
 
 class Quiz extends Component {
 
@@ -80,14 +81,14 @@ class Quiz extends Component {
             correct, showAnswer, opacity } = this.state
 
     return (
-        <Animated.View style={[styles.content, {opacity}]}>
+        <Animated.View style={[mainStyles.content, {opacity}]}>
           { endQuiz ?
             <Result
               correct={correct}
               totalQuestions ={deck.questions.length}
               retakeQuiz={this.retakeQuiz}
               gotToDecks={this.gotToDeck} /> :
-          <View style={styles.content}>
+          <View style={mainStyles.content}>
             <Text style={styles.counter}>
               Question {`${currentQuestion + 1}/${deck && deck.questions.length}`}
             </Text>
@@ -107,13 +108,13 @@ class Quiz extends Component {
             <View style={styles.actions}>
               <TouchableOpacity
                 onPress={() => this.checkQuestion(true)}
-                style={[styles.btn, styles.btnSubmit]}>
-                <Text style={styles.btnText}>Correct</Text>
+                style={[mainStyles.btn, mainStyles.btnSuccess]}>
+                <Text style={mainStyles.btnText}>Correct</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => this.checkQuestion(false)}
-                style={[styles.btn, styles.btnDanger]}>
-                <Text style={styles.btnText}>Incorrect</Text>
+                style={[mainStyles.btn, mainStyles.btnDanger]}>
+                <Text style={mainStyles.btnText}>Incorrect</Text>
               </TouchableOpacity>
             </View>
           </View>

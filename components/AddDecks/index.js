@@ -11,6 +11,7 @@ import {
 import { addDeck } from '../../actions/decks'
 import { navigateToDeckDetail } from '../../utils/navigation'
 import styles from './addDeck.styles'
+import mainStyles from '../../assets/main.styles'
 
 class AddDecks extends Component {
 
@@ -36,21 +37,21 @@ class AddDecks extends Component {
 
     return (
         <KeyboardAvoidingView
-          style={styles.content}
+          style={mainStyles.content}
           behavior="padding">
             <Text style={styles.title}>
               What is the title of your new deck?
             </Text>
             <TextInput
-              style={styles.textInput}
+              style={mainStyles.textInput}
               onChangeText={(title) => this.setState({ title })}
               value={title}
               placeholder={'Deck title'}
             />
             <TouchableOpacity
-              style={[styles.btn, styles.btnSubmit]}
+              style={[mainStyles.btn, mainStyles.btnSubmit]}
               onPress= {this.addNewDeck}>
-              <Text style={styles.btnText}>Save deck</Text>
+              <Text style={mainStyles.btnText}>Save deck</Text>
             </TouchableOpacity>
         </KeyboardAvoidingView>
     );

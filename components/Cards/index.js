@@ -13,6 +13,7 @@ import { fetchDecks } from '../../actions/decks'
 import { addCardDeck } from '../../actions/deck'
 import { navigateToDeckDetail } from '../../utils/navigation'
 import styles from './cards.styles'
+import mainStyles from '../../assets/main.styles'
 
 class Cards extends Component {
 
@@ -59,26 +60,26 @@ class Cards extends Component {
     const { question, answer, opacity } = this.state
 
     return (
-      <Animated.View style={[styles.content, {opacity}]}>
+      <Animated.View style={[mainStyles.content, {opacity}]}>
         <KeyboardAvoidingView
-          style={styles.content}
+          style={mainStyles.content}
           behavior="padding">
           <Text style={styles.headerText}>Question</Text>
           <TextInput
-              style={styles.textInput}
+              style={mainStyles.textInput}
               placeholder={'Add new question'}
               value={question}
               onChangeText={question => this.setState({ question })} />
-          <Text style={[styles.headerText, styles.marginTop]}>Answer</Text>
+          <Text style={styles.headerText}>Answer</Text>
           <TextInput
-              style={styles.textInput}
+              style={mainStyles.textInput}
               placeholder={'Add the response'}
               value={answer}
               onChangeText={answer => this.setState({ answer })} />
         <TouchableOpacity
-          style={[styles.btn, styles.btnSubmit]}
+          style={[mainStyles.btn, mainStyles.btnSubmit]}
           onPress={this.addNewCard}>
-          <Text style={styles.btnText}>Save card</Text>
+          <Text style={mainStyles.btnText}>Save card</Text>
         </TouchableOpacity>
           </KeyboardAvoidingView>
       </Animated.View>

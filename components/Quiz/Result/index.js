@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './result.styles'
+import mainStyles from '../../../assets/main.styles'
 
 class Result extends Component {
 
@@ -12,8 +13,8 @@ class Result extends Component {
     const excelent = totalQuestions === correct
 
     return (
-      <View style={styles.content}>
-        <View  style={styles.content}>
+      <View style={mainStyles.content}>
+        <View  style={mainStyles.content}>
           <Text style={styles.score}>
               {finalScore}%
           </Text>
@@ -23,7 +24,7 @@ class Result extends Component {
         </View>
         { excelent ?
           <View>
-            <Text style={styles.txtScore}>
+            <Text style={styles.txtMessage}>
               Great Job!
             </Text>
             <Text style={styles.txtScore}>
@@ -39,20 +40,18 @@ class Result extends Component {
             </Text>
           </View>
         }
-
         <View style={styles.actions}>
           <TouchableOpacity
             onPress={retakeQuiz}
-            style={[styles.btn, styles.btnRetake]}>
-            <Text style={styles.btnText}>Retake</Text>
+            style={[mainStyles.btn, mainStyles.btnRetake]}>
+            <Text style={mainStyles.btnText}>Retake</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={gotToDecks}
-            style={[styles.btn, styles.btnDecks]}>
-            <Text style={styles.btnText}>Go to Deck</Text>
+            style={[mainStyles.btn, mainStyles.btnDecks]}>
+            <Text style={mainStyles.btnText}>Go to Deck</Text>
           </TouchableOpacity>
         </View>
-
       </View>
     )
   }
