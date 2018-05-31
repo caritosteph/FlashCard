@@ -26,7 +26,7 @@ class Cards extends Component {
   componentDidMount() {
     const { opacity } = this.state
 
-    Animated.timing(opacity, { toValue: 1, duration: 1000 }).start();
+    Animated.timing(opacity, { toValue: 1, duration: 700 }).start();
   }
 
   static navigationOptions = ({ navigation }) => ({

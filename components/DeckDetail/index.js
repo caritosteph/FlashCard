@@ -20,7 +20,7 @@ class DeckDetail extends Component {
     const { opacity } = this.state
 
     fetchDeckDetail(navigation.state.params.item)
-    Animated.timing(opacity, { toValue: 1, duration: 1000 }).start()
+    Animated.timing(opacity, { toValue: 1, duration: 700 }).start()
   }
 
   addCardToDeck = item => {
