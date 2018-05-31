@@ -60,6 +60,6 @@ export function addCardToDeck(deckTitle, card) {
       const decks = JSON.parse(results)
       decks[deckTitle].questions.push(card)
       AsyncStorage.setItem('FLASHCARDS_STORAGE_KEY', JSON.stringify(decks))
-      return decks
+      return card
     })
 }

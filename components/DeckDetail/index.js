@@ -15,7 +15,7 @@ class DeckDetail extends Component {
   })
 
   componentDidMount() {
-    const { navigation, fetchDeckDetail } = this.props
+    const { navigation, fetchDeckDetail, deck } = this.props
     const { opacity } = this.state
 
     fetchDeckDetail(navigation.state.params.item)
