@@ -42,6 +42,20 @@ class Quiz extends Component {
     }
   }
 
+  retakeQuiz = (item) => {
+    this.setState({
+      currentQuestion: 0,
+      endQuiz: false,
+      correct: 0
+    })
+  }
+
+  gotToDecks = () => {
+    const { navigate } = this.props.navigation
+
+    navigate('Home')
+  }
+
   render(){
 
     const { currentQuestion, deck, endQuiz, correct } = this.state
@@ -49,7 +63,11 @@ class Quiz extends Component {
     return (
         <View style={styles.content}>
           { endQuiz ?
-            <Result correct={correct} totalQuestions = {deck.questions.length} /> :
+            <Result
+              correct={correct}
+              totalQuestions ={deck.questions.length}
+              retakeQuiz={this.retakeQuiz}
+              gotToDecks={this.gotToDecks} /> :
           <View style={styles.content}>
             <Text style={styles.counter}>
               Question {`${currentQuestion + 1}/${deck && deck.questions.length}`}

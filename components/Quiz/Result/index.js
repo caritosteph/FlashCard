@@ -6,7 +6,7 @@ class Result extends Component {
 
   render(){
 
-    const { correct, totalQuestions } = this.props
+    const { correct, totalQuestions, retakeQuiz, gotToDecks } = this.props
     const finalScore = Math.round(correct / totalQuestions * 100)
     const incorrect = totalQuestions - correct
     const excelent = totalQuestions === correct
@@ -42,12 +42,12 @@ class Result extends Component {
 
         <View style={styles.actions}>
           <TouchableOpacity
-            //onPress={() => this.retakeQuiz(true)}
+            onPress={retakeQuiz}
             style={[styles.btn, styles.btnRetake]}>
             <Text style={styles.btnText}>Retake</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            //onPress={() => this.gotToDecks(false)}
+            onPress={gotToDecks}
             style={[styles.btn, styles.btnDecks]}>
             <Text style={styles.btnText}>Go to Decks</Text>
           </TouchableOpacity>
