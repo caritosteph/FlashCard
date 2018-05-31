@@ -5,7 +5,8 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native'
 import { addDeck } from '../../actions/decks'
 import { navigateToDeckDetail } from '../../utils/navigation'
@@ -21,8 +22,12 @@ class AddDecks extends Component {
     const { addDeck, navigation } = this.props
     const { title } = this.state
 
-    addDeck(title)
-    navigateToDeckDetail(title, navigation)
+    if(title){
+      addDeck(title)
+      navigateToDeckDetail(title, navigation)
+    } else {
+      Alert.alert("Please enter a deck title.");
+    }
   }
 
   render(){

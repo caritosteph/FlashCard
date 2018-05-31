@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Text, TouchableOpacity, TextInput, Animated } from 'react-native'
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Animated,
+  Alert } from 'react-native'
 import { fetchDecks } from '../../actions/decks'
 import { addCardDeck } from '../../actions/deck'
 import { navigateToDeckDetail } from '../../utils/navigation'
@@ -32,9 +38,18 @@ class Cards extends Component {
       answer
     }
     const deckTitle = navigation.state.params.item;
-    addCardDeck(deckTitle, card)
-    .then(()=>fetchDecks())// update the list of decks
-    navigation.navigate('DeckDetail', { item: deckTitle })
+
+    if(question && answer){
+      addCardDeck(deckTitle, card)
+      .then(()=>fetchDecks())// update the list of decks
+      navigation.navigate('DeckDetail', { item: deckTitle })
+    } else {
+      if(!question) {
+        Alert.alert("Please enter the question.");
+      } else {
+        Alert.alert("Please enter the answer.");
+      }
+    }
   }
 
   render() {
