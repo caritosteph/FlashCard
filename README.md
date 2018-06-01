@@ -1,5 +1,5 @@
 # FlashCard
-FlashCard is a mobile app for Android and IOS built with React Native, which allows users create decks for any topic and add cards to these decks and start studing through resolving Quiz.
+FlashCard is a mobile app for Android and IOS built with React Native, which allows users create decks about any topic and add cards to these decks and start studying resolving a Quiz.
 
 ## Installation
 
@@ -10,15 +10,18 @@ To install FlashCard follow the following steps:
  4. Start the development server `npm start`
 
  ## Frontend
- This project is using **[React Native]**(http://facebook.github.io/react-native)
+ This project is using [**React Native**](http://facebook.github.io/react-native)
 
- ### Main Page
+ ### Features
 - [X] Show all list of decks.
 - [X] Option to create a new Deck.
+- [X] Show decks detail.
+- [X] Add new card in a specific deck.
+- [X] Start a Quiz.
 
 ## Testing
 
-This app has been tested on iOS 11 and also on Android 7
+This app has been tested on iOS 11 and Android 7
 
 ## License
 
