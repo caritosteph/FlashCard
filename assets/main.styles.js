@@ -65,7 +65,6 @@ const mainStyles = StyleSheet.create({
     backgroundColor: red,
     marginLeft: 40,
     marginRight: 40,
-    marginBottom: 30,
   },
 })
 
